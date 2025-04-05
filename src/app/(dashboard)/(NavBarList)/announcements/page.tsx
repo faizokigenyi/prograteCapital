@@ -44,8 +44,8 @@ const FinancialNoticesPage = () => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table="financial-notice" type="update" data={item} />
-              <FormModal table="financial-notice" type="delete" id={item.id} />
+              <FormModal table= "attendance" type="update" data={item} />
+              <FormModal table="announcement" type="delete" id={item.id} />
             </>
           )}
         </div>

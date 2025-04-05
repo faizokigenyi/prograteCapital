@@ -1,5 +1,4 @@
-import { role } from "@/lib/data";
-import Image from "next/image";
+
 import Link from "next/link";
 import {
   FaUserTie,
@@ -23,7 +22,7 @@ import { IoIosPeople } from "react-icons/io";
 import { BsBank } from "react-icons/bs";
 import { AiOutlineMessage } from "react-icons/ai";
 
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 type UserRole = "admin" | "manager" | "employee" | "investor";
 

@@ -90,7 +90,7 @@ const TeacherListPage = () => {
             </button>
           </Link>
           {role === "admin" && (
-            <FormModal table="manager" type="delete" id={item.id} />
+            <FormModal table="student" type="delete" id={item.id} />
           )}
         </div>
       </td>
