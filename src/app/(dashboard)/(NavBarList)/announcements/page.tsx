@@ -2,7 +2,7 @@ import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import { announcementsData, financialNoticesData, role } from "@/lib/data";
+import {  financialNoticesData, role } from "@/lib/data";
 import Image from "next/image";
 type FinancialNotice = {
   id: number;
