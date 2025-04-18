@@ -5,23 +5,25 @@ import TableSearch from "@/components/TableSearch";
 import { eventsData, role } from "@/lib/data";
 import Image from "next/image";
 
+// ✅ Updated Event Type
 type Event = {
   id: number;
   title: string;
-  class: string;
+  department: string;
   date: string;
   startTime: string;
   endTime: string;
 };
 
+// ✅ Updated Columns for Financial Context
 const columns = [
   {
     header: "Title",
     accessor: "title",
   },
   {
-    header: "Class",
-    accessor: "class",
+    header: "Department",
+    accessor: "department",
   },
   {
     header: "Date",
@@ -44,6 +46,7 @@ const columns = [
   },
 ];
 
+// ✅ Updated Render Logic
 const EventListPage = () => {
   const renderRow = (item: Event) => (
     <tr
@@ -51,7 +54,7 @@ const EventListPage = () => {
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight"
     >
       <td className="flex items-center gap-4 p-4">{item.title}</td>
-      <td>{item.class}</td>
+      <td>{item.department}</td>
       <td className="hidden md:table-cell">{item.date}</td>
       <td className="hidden md:table-cell">{item.startTime}</td>
       <td className="hidden md:table-cell">{item.endTime}</td>
@@ -86,8 +89,10 @@ const EventListPage = () => {
           </div>
         </div>
       </div>
+
       {/* LIST */}
       <Table columns={columns} renderRow={renderRow} data={eventsData} />
+
       {/* PAGINATION */}
       <Pagination />
     </div>

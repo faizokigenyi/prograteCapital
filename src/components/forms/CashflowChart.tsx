@@ -1,6 +1,7 @@
 import React from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import FinanceChart from "../FinanceChart";
+import RecentActivities from "../RecentActivities";
 
 const CashflowChart = () => {
   return (
@@ -12,8 +13,8 @@ const CashflowChart = () => {
           <FaAngleDown />
         </div>
       </div>
-      <div className="w-full h-[250px]  md:min-h-[250px] ">
-        <FinanceChart />  
+      <div className="w-full h-[300px]  md:min-h-[250px] ">
+        <FinanceChart />
       </div>
     </div>
   );

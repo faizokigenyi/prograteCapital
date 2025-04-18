@@ -15,7 +15,7 @@ const ReusableTable = <T extends {}>({ data, columns }: TableProps<T>) => {
             {columns.map((column) => (
               <th
                 key={column.header}
-                className="px-4 py-2 border-b bg-blue-100 font-semibold text-gray-500 text-left text-[13px]"
+                className="px-4 py-2 border-b bg-blue-100 font-semibold text-gray-600 text-left text-[13px]"
               >
                 {column.header}
               </th>
@@ -28,7 +28,7 @@ const ReusableTable = <T extends {}>({ data, columns }: TableProps<T>) => {
               {columns.map((column) => (
                 <td
                   key={column.accessor as string}
-                  className="px-4 py-2 border-b bg-white font-thin text-gray-400 text-[13px]"
+                  className="px-4 py-2 border-b  font-normal text-black text-[13px]"
                 >
                   {row[column.accessor] as React.ReactNode}
                 </td>

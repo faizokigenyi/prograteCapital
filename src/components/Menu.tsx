@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import {
   FaUserTie,
@@ -34,7 +33,7 @@ interface MenuItem {
 }
 
 interface MenuSection {
-  title: string;
+  title?: string;
   items: MenuItem[];
 }
 
@@ -149,10 +148,10 @@ const menuItems: MenuSection[] = [
 
 const Menu = () => {
   return (
-    <div className="mt-10 pt-3 text-sm max-h-[80vh] overflow-scroll no-scrollbar">
+    <div className=" pt-3 text-sm max-h-[80vh] overflow-scroll no-scrollbar">
       {menuItems.map((i) => (
         <div className="flex flex-col gap-2" key={i.title}>
-          <span className="hidden lg:block text-gray-800 font-bold my-4">
+          <span className="flex md:ml-2 lg:block text-gray-800 font-extrabold my-4">
             {i.title}
           </span>
           {i.items.map((item) => {
@@ -161,7 +160,7 @@ const Menu = () => {
                 <Link
                   href={item.href}
                   key={item.label}
-                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
+                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:text-black hover:bg-lamaSkyLight"
                 >
                   <item.icon className="text-lg" />
                   <span className="hidden lg:block">{item.label}</span>
