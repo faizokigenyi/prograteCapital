@@ -42,7 +42,7 @@ const activities = {
 
 export default function RecentActivities() {
   return (
-    <div className="w-full rounded-2xl p-6 bg-white shadow-md ">
+    <div className="w-full  p-6 bg-white shadow-md ">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800">
           Recent Activities

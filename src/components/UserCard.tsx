@@ -11,7 +11,7 @@ type UserCardProps = {
 const UserCard = ({ name, amount, percentageIncrease }: UserCardProps) => {
   const isPositive = percentageIncrease >= 0;
   return (
-    <div className="rounded-2xl shadow-xl odd:bg-white border border-gray-300 p-2 flex-1 min-w-[130px]">
+    <div className=" shadow-xl odd:bg-white border border-gray-300 p-2 flex-1 min-w-[130px]">
       <div className="flex justify-between items-center">
         <div className="px-4 py-1 rounded-full">
           <div className="flex items-center gap-2">

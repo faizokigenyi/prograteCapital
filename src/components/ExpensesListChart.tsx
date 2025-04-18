@@ -35,11 +35,13 @@ export default function CategoryRadialChart({
   } satisfies ChartConfig;
 
   return (
-    <Card className={`flex flex-col ${className}`}>
-      <CardContent className="flex-1 pb-0 pt-4 px-4">
+    <Card
+      className={`rounded-none bg-white shadow-md flex flex-col border border-gray-200 ${className}`}
+    >
+      <CardContent className="flex-1 pt-6 px-6 pb-2">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
+          className="mx-auto aspect-square max-w-[240px] sm:max-w-[260px] md:max-w-[300px]"
         >
           <RadialBarChart
             data={data}
@@ -57,24 +59,24 @@ export default function CategoryRadialChart({
         </ChartContainer>
       </CardContent>
 
-      <CardFooter className="flex flex-col gap-4 px-4 pb-4 pt-2 text-sm">
+      <CardFooter className="flex flex-col gap-4 px-6 pb-6 pt-2 text-sm">
         <div className="w-full">
-          <h2 className="text-left text-gray-600 font-semibold text-base">
+          <h2 className="text-left text-gray-700 font-semibold text-base sm:text-lg">
             {title}
           </h2>
         </div>
 
         <div className="flex items-center justify-between w-full">
-          <span className="font-bold text-xl text-gray-800">
+          <span className="font-bold text-xl sm:text-2xl text-gray-900">
             ${total.toLocaleString()}
           </span>
-          <span className="bg-green-200 text-green-800 rounded px-2 py-1 text-xs font-medium">
+          <span className="bg-emerald-100 text-emerald-700 rounded-md px-2 py-[2px] text-xs font-medium">
             100%
           </span>
         </div>
 
-        {/* Professional Scrollbar */}
-        <div className="pt-2 border-t border-gray-200 w-full max-h-[180px] overflow-y-auto pr-1 space-y-3 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-500">
+        {/* Scroll area with scrollbar visible only on hover */}
+        <div className="pt-3 border-t border-gray-100 w-full max-h-[180px] overflow-y-hidden lg hover:overflow-y-auto pr-1 space-y-3 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-50 hover:scrollbar-thumb-gray-400 transition-all duration-300">
           {data.map((item) => {
             const percentage = ((item.value / total) * 100).toFixed(1);
             return (
@@ -88,15 +90,15 @@ export default function CategoryRadialChart({
                     style={{ backgroundColor: item.fill }}
                   />
                   <div>
-                    <h1 className="font-semibold text-sm text-gray-800">
+                    <h1 className="font-medium text-sm sm:text-base text-gray-800">
                       {item.name}
                     </h1>
-                    <span className="text-gray-500 text-xs">
+                    <span className="text-gray-500 text-xs sm:text-sm">
                       ${item.value.toLocaleString()}
                     </span>
                   </div>
                 </div>
-                <span className="bg-green-100 text-green-700 rounded px-2 py-1 text-xs font-medium">
+                <span className="bg-gray-100 text-gray-700 rounded-md px-2 py-[2px] text-xs font-medium">
                   {percentage}%
                 </span>
               </div>

@@ -8,7 +8,7 @@ interface TableProps<T> {
 
 const ReusableTable = <T extends {}>({ data, columns }: TableProps<T>) => {
   return (
-    <div className="overflow-x-scroll no-scrollbar rounded-lg shadow-md bg-white">
+    <div className="overflow-x-scroll no-scrollbar  shadow-md bg-white">
       <table className="min-w-full border-collapse table-auto">
         <thead>
           <tr>
