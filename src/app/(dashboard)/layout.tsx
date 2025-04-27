@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -19,7 +20,9 @@ export default function DashboardLayout({
           >
             <Image src="/logo.png" alt="logo" width={40} height={40} />
             <div className="flex flex-col justify-center items-center gap-[2px] max-h-[32]  ">
-              <span className="lg:block font-extrabold text-gray-600">PROGRATE</span>
+              <span className="lg:block font-extrabold text-gray-600">
+                PROGRATE
+              </span>
             </div>
           </Link>
           <Menu />
@@ -33,6 +36,8 @@ export default function DashboardLayout({
         <div className="overflow-y-auto scrollbar-none flex flex-col pt-[60px] h-screen mt-6">
           {children}
         </div>
+        {/* <Footer /> */}
+
       </div>
     </div>
   );
