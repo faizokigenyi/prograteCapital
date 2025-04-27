@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.2",
     "@hookform/resolvers": "^3.9.0",
     "@types/react-big-calendar": "^1.8.9",
     "class-variance-authority": "^0.7.1",

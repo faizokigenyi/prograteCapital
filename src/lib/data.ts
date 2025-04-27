@@ -1,5 +1,7 @@
 // TEMPORARY DATA
 
+import { Employee } from "@/types/types";
+
 export let role = "admin";
 
 export const managersData = [
@@ -1061,5 +1063,50 @@ export const calendarEvents = [
     allDay: false,
     start: new Date(2024, 7, 16, 14, 0),
     end: new Date(2024, 7, 16, 14, 45),
+  },
+];
+
+
+
+export const employees: Employee[] = [
+  {
+    id: 1,
+    firstName: 'Jane',
+    lastName: 'Doe',
+    age: 30,
+    department: 'Finance',
+    status: 'Active',
+  },
+  {
+    id: 2,
+    firstName: 'John',
+    lastName: 'Smith',
+    age: 40,
+    department: 'Engineering',
+    status: 'Active',
+  },
+  {
+    id: 3,
+    firstName: 'Alice',
+    lastName: 'Johnson',
+    age: 25,
+    department: 'Marketing',
+    status: 'Inactive',
+  },
+  {
+    id: 4,
+    firstName: 'Michael',
+    lastName: 'Brown',
+    age: 35,
+    department: 'Human Resources',
+    status: 'Active',
+  },
+  {
+    id: 5,
+    firstName: 'Linda',
+    lastName: 'Taylor',
+    age: 28,
+    department: 'Product',
+    status: 'Inactive',
   },
 ];

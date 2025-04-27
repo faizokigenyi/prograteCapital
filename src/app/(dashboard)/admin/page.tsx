@@ -1,14 +1,22 @@
-import Announcements from "@/components/Announcements";
-import AttendanceChart from "@/components/AttendanceChart";
-import CountChart from "@/components/CountChart";
-import EventCalendar from "@/components/EventCalendar";
-import FinanceChart from "@/components/FinanceChart";
+"use client";
+
 import CashflowChart from "@/components/forms/CashflowChart";
 import UserCard from "@/components/UserCard";
 import { GiSettingsKnobs } from "react-icons/gi";
-import ReusableTable from "@/components/ReusableTable";
+import ReusableTable, { Column } from "@/components/ReusableTable";
 import CategoryRadialChart from "@/components/ExpensesListChart";
 import RecentActivities from "@/components/RecentActivities";
+import AudienceChart from "@/components/AudienceChart";
+import { Employee } from "@/types/types";
+import { employees } from "@/lib/data";
+
+export const employeeColumns: Column<Employee>[] = [
+  { header: "First Name", accessor: "firstName" },
+  { header: "Last Name", accessor: "lastName" },
+  { header: "Age", accessor: "age" },
+  { header: "Department", accessor: "department" },
+  { header: "Status", accessor: "status" },
+];
 
 const expensesData = [
   { name: "Food and Dining", value: 820, fill: "#0ea5e9" },
@@ -66,20 +74,6 @@ const generateRandomTableData = (numRows: number) => {
   return tableData;
 };
 
-const randomData = generateRandomTableData(5); // Generate 5 random rows
-
-// Define columns
-const columns: {
-  header: string;
-  accessor: "customerName" | "nin" | "date" | "amount" | "status";
-}[] = [
-  { header: "Customer Name", accessor: "customerName" },
-  { header: "NIN", accessor: "nin" },
-  { header: "Date", accessor: "date" },
-  { header: "Amount", accessor: "amount" },
-  { header: "Status", accessor: "status" },
-];
-
 const AdminPage = () => {
   const getRandomAmount = () => Math.floor(Math.random() * 100000) + 1000;
 
@@ -92,6 +86,16 @@ const AdminPage = () => {
   const getRandomName = () => {
     const names = ["Total Revenue", "", "Clients", "Employess"];
     return names[Math.floor(Math.random() * names.length)];
+  };
+
+  const handleEdit = (row: Employee) => {
+    console.log("Editing employee:", row);
+    // navigate to edit page or open modal
+  };
+
+  const handleDelete = (row: Employee) => {
+    console.log("Deleting employee:", row);
+    // confirm delete and remove from DB
   };
 
   return (
@@ -116,7 +120,7 @@ const AdminPage = () => {
           <CashflowChart />
         </div>
         {/* BOTTOM ITEMS */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 h-[480px]">
           <div className="w-full flex justify-between items-center px-1 ">
             <h1 className="text-gray-500 font-bold text-sm px-4">
               Expected Transactions
@@ -128,8 +132,13 @@ const AdminPage = () => {
               <GiSettingsKnobs className="text-gray-500 text-[18px] cursor-pointer" />
             </div>
           </div>
-          <div className="w-full bg-white rounded-md">
-            <ReusableTable columns={columns} data={randomData} />
+          <div className="w-full h-[100%] bg-white rounded-md overflow-x-hidden lg hover:overflow-x-auto pb-1 space-x-3 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-50 hover:scrollbar-thumb-gray-400 transition-all duration-300ease-in-out">
+            <ReusableTable<Employee>
+              columns={employeeColumns}
+              data={employees}
+              onEdit={handleEdit}
+              onDelete={handleDelete}
+            />
           </div>
         </div>
       </div>
@@ -150,6 +159,7 @@ const AdminPage = () => {
 
         {/* ANNOUNCEMENTS */}
         {/* FINANCE CHART */}
+        <AudienceChart />
       </div>
     </div>
   );
